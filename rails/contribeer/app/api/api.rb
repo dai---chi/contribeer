@@ -17,7 +17,12 @@ class API < Grape::API
 
   resource :issues do
     get do
-      Issues.all
+      issues = []
+      Issue.all.each { |i|
+        i.total_price = i.payments.map(&:price).inject(:+)
+        issues << i
+      }
+      issues
     end
 
     # get ':twitter_id' do

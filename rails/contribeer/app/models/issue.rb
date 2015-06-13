@@ -1,6 +1,7 @@
 class Issue < ActiveRecord::Base
   after_initialize :set_defaults
   has_many :payments
+  attr_accessor :total_price
 
   private
 
