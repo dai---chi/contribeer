@@ -17,8 +17,7 @@ class API < Grape::API
 
   resource :issues do
     get do
-      # Issues.all
-      {waiwai: "wa"}
+      Issues.all
     end
 
     # get ':twitter_id' do
