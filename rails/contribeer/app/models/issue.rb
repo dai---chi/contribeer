@@ -1,7 +1,6 @@
-class Issues < ActiveRecord::Base
+class Issue < ActiveRecord::Base
   after_initialize :set_defaults
-
-
+  has_many :payments
 
   private
 

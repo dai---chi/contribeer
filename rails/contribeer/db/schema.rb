@@ -11,12 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150613124454) do
+ActiveRecord::Schema.define(version: 20150613125752) do
 
   create_table "issues", force: true do |t|
     t.integer  "github_issue_id"
     t.string   "repo_name"
     t.boolean  "is_opend"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "payments", force: true do |t|
+    t.integer  "user_id"
+    t.float    "price"
+    t.string   "currency"
+    t.integer  "issue_id"
+    t.boolean  "is_completed"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
