@@ -26,7 +26,7 @@ class API < Grape::API
     end
 
     get ':id' do
-      issue = Issue.find(params[:id].to_i)
+      issue = Issue.find_by(github_issue_id: params[:id].to_i)
       issue.total_price = issue.payments.map(&:price).inject(:+)
       issue
     end
