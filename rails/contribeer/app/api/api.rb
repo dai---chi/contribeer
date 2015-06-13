@@ -25,6 +25,12 @@ class API < Grape::API
       issues
     end
 
+    get ':id' do
+      issue = Issue.find(params[:id].to_i)
+      issue.total_price = issue.payments.map(&:price).inject(:+)
+      issue
+    end
+
     # get ':twitter_id' do
     #   User.find_by(twitter_id: params[:twitter_id])
     # end
